@@ -21,7 +21,7 @@ Password: `1234`
 
 | BRANCH    | KERNEL VERSION | eMMC | HDMI | VPU |
 | :-:       | :-:            | :-:  | :-:  | :-: |
-| `edge`    | `v6.3`         | ✔️¹  | ✔️² | ✔️² |
+| `edge`    | `v6.4`         | ✔️¹  | ✔️² | ✔️² |
 | `current` | `v6.1`         | ✔️¹  | ✔️² | ✔️² |
 
 > ¹: Patch required
