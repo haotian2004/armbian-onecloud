@@ -16,7 +16,8 @@ env:
   UBOOT_BURNIMG: eMMC.burn.img
   ARMBIAN_REPO: armbian/build
   ARMBIAN_REF: main
-  PATCHES: 4077,5076,5082
+  PATCHES: 4077,5076
+  PATCHES_DISABLED: 5082
 
 jobs:
   prepare:
@@ -111,9 +112,14 @@ jobs:
       - name: "Apply patch ${{ env.PATCHES }}"
         if: ${{ env.PATCHES }}
         run: |
+          echo "::group::Download"
           curl -L -O "https://github.com/armbian/build/pull/{${PATCHES}}.patch"
+          echo "::endgroup::"
+
           for file in *.patch; do
+            echo "::group::Applying $file"
             patch --batch -p1 -N <"$file"
+            echo "::endgroup::"
           done
 
       - name: Build
@@ -172,9 +178,14 @@ jobs:
       - name: "Apply patch ${{ env.PATCHES }}"
         if: ${{ env.PATCHES }}
         run: |
+          echo "::group::Download"
           curl -L -O "https://github.com/armbian/build/pull/{${PATCHES}}.patch"
+          echo "::endgroup::"
+
           for file in *.patch; do
+            echo "::group::Applying $file"
             patch --batch -p1 -N <"$file"
+            echo "::endgroup::"
           done
 
       - name: Download debs
