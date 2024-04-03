@@ -209,7 +209,6 @@ jobs:
             DESKTOP_ENVIRONMENT: kde-plasma
             DESKTOP_ENVIRONMENT_CONFIG_NAME: config_base
             DESKTOP_APPGROUPS_SELECTED: ""
-        exclude:
 
     steps:
       - name: Import env
